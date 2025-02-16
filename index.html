@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form action="">
+      <div class="header">
+        <h2><i class="fa-solid fa-calculator"></i> Calculator</h2>
+      </div>
+      <div class="calcBody">
+        <div class="output">
+          <input type="text" id="display" />
+        </div>
+        <div class="btn">
+          <input type="button" value="C" onclick="clearDisplay()" />
+          <input type="button" value="←" onclick="back()" />
+          <input type="button" value="x²" onclick="findSquare()" />
+          <input type="button" value="/" onclick="appendOperator('/')" />
+          <br />
+          <input type="button" value="7" onclick="appendNumber('7')" />
+          <input type="button" value="8" onclick="appendNumber('8')" />
+          <input type="button" value="9" onclick="appendNumber('9')" />
+          <input type="button" value="*" onclick="appendOperator('*')" />
+          <br />
+
+          <input type="button" value="4" onclick="appendNumber('4')" />
+          <input type="button" value="5" onclick="appendNumber('5')" />
+          <input type="button" value="6" onclick="appendNumber('6')" />
+          <input type="button" value="-" onclick="appendOperator('-')" />
+          <br />
+
+          <input type="button" value="1" onclick="appendNumber('1')" />
+          <input type="button" value="2" onclick="appendNumber('2')" />
+          <input type="button" value="3" onclick="appendNumber('3')" />
+          <input type="button" value="+" onclick="appendOperator('+')" />
+          <br />
+          <input type="button" value="00" onclick="appendNumber('00')" />
+          <input type="button" value="0" onclick="appendNumber('0')" />
+          <input type="button" value="." onclick="" />
+          <input type="button" value="=" onclick="calculate()" />
+        </div>
+      </div>
+
+      <script>
+        const display = document.getElementById("display")
+        function appendNumber(number){
+            display.value += number
+        }
+
+        function appendOperator(operator){
+            display.value += operator
+        }
+
+        function clearDisplay(){
+            display.value = '';
+        }
+
+        function calculate(){
+            try {
+                display.value = eval(display.value);
+            } catch(e) {
+                display.value = 'Error';
+                alert(e);
+            }
+        }
+
+        function back(){
+            display.value -= display.value;
+        }
+
+        // findSquare(){ 
+        //     display.value = (display.value)*2;
+        // }
+      </script>
+    </form>
+  </body>
+
+</html>
