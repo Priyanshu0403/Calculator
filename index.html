@@ -41,43 +41,14 @@
           <br />
           <input type="button" value="00" onclick="appendNumber('00')" />
           <input type="button" value="0" onclick="appendNumber('0')" />
-          <input type="button" value="." onclick="" />
+          <input type="button" value="." onclick="appendDot()" />
           <input type="button" value="=" onclick="calculate()" />
         </div>
       </div>
 
-      <script>
-        const display = document.getElementById("display")
-        function appendNumber(number){
-            display.value += number
-        }
-
-        function appendOperator(operator){
-            display.value += operator
-        }
-
-        function clearDisplay(){
-            display.value = '';
-        }
-
-        function calculate(){
-            try {
-                display.value = eval(display.value);
-            } catch(e) {
-                display.value = 'Error';
-                alert(e);
-            }
-        }
-
-        function back(){
-            display.value -= display.value;
-        }
-
-        // findSquare(){ 
-        //     display.value = (display.value)*2;
-        // }
-      </script>
+      
     </form>
+    <script src="script.js"></script>
   </body>
 
 </html>
